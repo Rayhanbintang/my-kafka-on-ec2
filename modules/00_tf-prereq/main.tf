@@ -2,6 +2,11 @@ data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket" "tf_state" {
+	# checkov:skip=BC_AWS_S3_13: sandbox
+	# checkov:skip=BC_AWS_S3_16: sandbox
+	# checkov:skip=BC_AWS_GENERAL_56: sandbox
+	# checkov:skip=BC_AWS_S3_14: sandbox
+	# checkov:skip=CKV_AWS_144: sandbox
   bucket = format("%s-%s-%s-%s", local.general_prefix, "tfstate", data.aws_region.current.name, data.aws_caller_identity.current.account_id)
 
   tags = merge(
@@ -22,6 +27,9 @@ resource "aws_s3_bucket_public_access_block" "tf_state" {
 }
 
 resource "aws_dynamodb_table" "terraform_state_lock" {
+	# checkov:skip=BC_AWS_GENERAL_44: sandbox
+	# checkov:skip=BC_AWS_GENERAL_52: sandbox
+	# checkov:skip=BC_AWS_GENERAL_6: sandbox
   name           = format("%s-tf-state-lock", local.general_prefix)
   read_capacity  = 5
   write_capacity = 5

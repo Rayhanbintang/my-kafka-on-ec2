@@ -2,7 +2,7 @@
 // --------------------------------   TF PROVIDER   ----------------------------------------------//
 // -----------------------------------------------------------------------------------------------//
 provider "aws" {
-  region = "ap-southeast-1"
+  region = "us-east-1"
 }
 
 // -----------------------------------------------------------------------------------------------//
@@ -24,7 +24,7 @@ terraform {
 module "prereq" {
   source = "../../../modules/00-terraform-prereq"
 
-  region                                       = "ap-southeast-1"
+  region                                       = "us-east-1"
   master_prefix                                = "my"
   env_prefix                                   = "kafka"
   app_prefix                                   = "project"
