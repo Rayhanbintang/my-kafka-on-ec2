@@ -13,7 +13,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "= 3.74"
+      version = ">= 3.74"
     }
   }
 }
@@ -22,7 +22,7 @@ terraform {
 // --------------------------------   TF MODULES   -----------------------------------------------//
 // -----------------------------------------------------------------------------------------------//
 module "prereq" {
-  source = "../../../modules/00-tf-prereq"
+  source = "../../../modules/00-terraform-prereq"
 
   region                                       = "ap-southeast-1"
   master_prefix                                = "my"
