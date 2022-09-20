@@ -41,7 +41,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 3.74"
+      version = ">= 4.31"
     }
   }
 }
@@ -50,7 +50,7 @@ terraform {
 // --------------------------------   TF MODULES   -----------------------------------------------//
 // -----------------------------------------------------------------------------------------------//
 module "prereq" {
-  source = "../../../modules/01-prereq"
+  source = "../../modules/01-prereq"
 
   master_prefix                                = "my"
   env_prefix                                   = "kafka"
