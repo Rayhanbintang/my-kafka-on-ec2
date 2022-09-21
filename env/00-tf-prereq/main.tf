@@ -3,26 +3,6 @@
 // -----------------------------------------------------------------------------------------------//
 provider "aws" {
   region = "us-east-1"
-  skip_region_validation = true
-  default_tags {
-    tags = var.tags
-  }
-}
-
-// -----------------------------------------------------------------------------------------------//
-// --------------------------------   TF BACKEND   -----------------------------------------------//
-// -----------------------------------------------------------------------------------------------//
-terraform {
-
-  // Backend - AWS Landing Zone Lab
-  backend "s3" {
-    bucket         = "" #fill later
-    region = "us-east-1"
-    skip_region_validation = true
-    key            = "01-prereq/terraform.tfstate"
-    dynamodb_table = "" #fill later
-    encrypt        = true
-  }
 }
 
 // -----------------------------------------------------------------------------------------------//
@@ -33,7 +13,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 4.31"
+      version = "= 4.31"
     }
   }
 }
@@ -41,25 +21,12 @@ terraform {
 // -----------------------------------------------------------------------------------------------//
 // --------------------------------   TF MODULES   -----------------------------------------------//
 // -----------------------------------------------------------------------------------------------//
-module "prereq" {
-  source = "../../modules/01-prereq"
+module "tf-prereq" {
+  source = "../../modules/00-tf-prereq"
 
+  region                                       = "us-east-1"
   master_prefix                                = "my"
   env_prefix                                   = "kafka"
   app_prefix                                   = "project"
 
 }
-
-//--- VPC Config ---
-
-
-//--- Subnet Config ---
-az1_id = "use1-az1"
-az2_id = "use1-az2"
-
-private-subnet1-cidr  = "10.0.1.0/24"
-private-subnet2-cidr  = "10.0.2.0/24"
-public-subnet1-cidr   = "10.0.3.0/24"
-public-subnet2-cidr   = "10.0.4.0/24"
-
-
