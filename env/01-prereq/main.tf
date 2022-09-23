@@ -2,7 +2,7 @@
 // --------------------------------   TF PROVIDER   ----------------------------------------------//
 // -----------------------------------------------------------------------------------------------//
 provider "aws" {
-  region = "us-east-1"
+  region                 = "us-east-1"
   skip_region_validation = true
   default_tags {
     tags = var.tags
@@ -16,12 +16,12 @@ terraform {
 
   // Backend - AWS Landing Zone Lab
   backend "s3" {
-    bucket                  = "my-kafka-project-tfstate-us-east-1-684434421580" #fill later
-    region                  = "us-east-1"
-    skip_region_validation  = true
-    key                     = "01-prereq/terraform.tfstate"
-    dynamodb_table          = "my-kafka-project-tf-state-lock" #fill later
-    encrypt                 = true
+    bucket                 = "my-kafka-project-tfstate-us-east-1-684434421580" #fill later
+    region                 = "us-east-1"
+    skip_region_validation = true
+    key                    = "01-prereq/terraform.tfstate"
+    dynamodb_table         = "my-kafka-project-tf-state-lock" #fill later
+    encrypt                = true
   }
 }
 
@@ -44,9 +44,9 @@ terraform {
 module "prereq" {
   source = "../../modules/01-prereq"
 
-  master_prefix                                = "my"
-  env_prefix                                   = "kafka"
-  app_prefix                                   = "project"
+  master_prefix = "my"
+  env_prefix    = "kafka"
+  app_prefix    = "project"
 
 
   //--- VPC Config ---
@@ -56,10 +56,10 @@ module "prereq" {
   az1_id = "use1-az1"
   az2_id = "use1-az2"
 
-  private-subnet1-cidr  = "10.0.1.0/24"
-  private-subnet2-cidr  = "10.0.2.0/24"
-  public-subnet1-cidr   = "10.0.3.0/24"
-  public-subnet2-cidr   = "10.0.4.0/24"
+  private-subnet1-cidr = "10.0.1.0/24"
+  private-subnet2-cidr = "10.0.2.0/24"
+  public-subnet1-cidr  = "10.0.3.0/24"
+  public-subnet2-cidr  = "10.0.4.0/24"
 
 }
 
