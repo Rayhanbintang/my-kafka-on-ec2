@@ -28,7 +28,7 @@ terraform {
     key                    = "01-prereq/terraform.tfstate"
     dynamodb_table         = "my-kafka-project-tf-state-lock" #fill later
     encrypt                = true
-  }
+  } 
 }
 
 // -----------------------------------------------------------------------------------------------//
