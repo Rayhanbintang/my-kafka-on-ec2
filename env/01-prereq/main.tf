@@ -18,18 +18,18 @@ provider "aws" {
 // -----------------------------------------------------------------------------------------------//
 // --------------------------------   TF BACKEND   -----------------------------------------------//
 // -----------------------------------------------------------------------------------------------//
-terraform {
+# terraform {
 
-  // Backend - AWS Landing Zone Lab
-  backend "s3" {
-    bucket                 = "my-kafka-project-tfstate-us-east-1-684434421580" #fill later
-    region                 = "us-east-1"
-    skip_region_validation = true
-    key                    = "01-prereq/terraform.tfstate"
-    dynamodb_table         = "my-kafka-project-tf-state-lock" #fill later
-    encrypt                = true
-  } 
-}
+#   // Backend - AWS Landing Zone Lab
+#   backend "s3" {
+#     bucket                 = "my-kafka-project-tfstate-us-east-1-684434421580" #fill later
+#     region                 = "us-east-1"
+#     skip_region_validation = true
+#     key                    = "01-prereq/terraform.tfstate"
+#     dynamodb_table         = "my-kafka-project-tf-state-lock" #fill later
+#     encrypt                = true
+#   } 
+# }
 
 // -----------------------------------------------------------------------------------------------//
 // --------------------------------   TF VERSION   -----------------------------------------------//
