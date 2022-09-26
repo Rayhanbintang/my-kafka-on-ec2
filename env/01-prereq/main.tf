@@ -1,3 +1,9 @@
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
 // -----------------------------------------------------------------------------------------------//
 // --------------------------------   TF PROVIDER   ----------------------------------------------//
 // -----------------------------------------------------------------------------------------------//
@@ -53,8 +59,8 @@ module "prereq" {
 
 
   //--- Subnet Config ---
-  az1_id = "use1-az1"
-  az2_id = "use1-az2"
+  az1_id = "us-east-1a"
+  az2_id = "us-east-1b"
 
   private-subnet1-cidr = "10.0.1.0/24"
   private-subnet2-cidr = "10.0.2.0/24"
