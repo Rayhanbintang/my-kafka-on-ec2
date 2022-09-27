@@ -6,7 +6,7 @@ resource "aws_msk_cluster" "my-msk" {
   number_of_broker_nodes = 2
 
   broker_node_group_info {
-    instance_type = "kafka.t2.micro"
+    instance_type = "kafka.t3.small"
     client_subnets = [
       data.aws_subnet.subnet-private1.id,
       data.aws_subnet.subnet-private2.id,
